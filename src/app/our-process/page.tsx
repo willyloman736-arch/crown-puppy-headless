@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageHero } from "@/components/PageHero";
 import { SectionIntro } from "@/components/SectionIntro";
+import { getPuppies } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Our Process",
   description:
     "Learn how Crown Puppy Boutique handles puppy inquiries, availability confirmation, reservation, and homecoming coordination."
 };
+
+export const revalidate = 300;
 
 const steps = [
   {
@@ -42,7 +45,10 @@ const steps = [
   }
 ];
 
-export default function OurProcessPage() {
+export default async function OurProcessPage() {
+  const puppies = await getPuppies();
+  const processImages = puppies.flatMap((puppy) => puppy.images.slice(0, 1));
+
   return (
     <>
       <PageHero eyebrow="Simple and guided" title="Our Process">
@@ -59,13 +65,24 @@ export default function OurProcessPage() {
           reservation timing, and the support included before moving forward.
         </SectionIntro>
         <div className="process-grid">
-          {steps.map((step, index) => (
-            <div className="process-step" key={step.title}>
-              <span>{index + 1}</span>
-              <strong>{step.title}</strong>
-              <p>{step.copy}</p>
-            </div>
-          ))}
+          {steps.map((step, index) => {
+            const image = processImages[index % processImages.length];
+
+            return (
+              <div className="process-step" key={step.title}>
+                {image ? (
+                  <div className="process-step__media">
+                    <img src={image.src} alt={image.alt} />
+                  </div>
+                ) : null}
+                <div className="process-step__content">
+                  <span className="process-step__number">{index + 1}</span>
+                  <strong>{step.title}</strong>
+                  <p>{step.copy}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 

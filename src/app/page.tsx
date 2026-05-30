@@ -10,16 +10,21 @@ export const revalidate = 300;
 export default async function HomePage() {
   const puppies = await getPuppies();
   const available = puppies.filter((puppy) => puppy.available);
-  const heroPuppy =
-    available.find((puppy) => puppy.name === "Lola") || available[0] || puppies[0];
   const featured = available.slice(0, 6);
 
   return (
     <>
       <section className="hero">
-        {heroPuppy?.images[0] ? (
-          <img className="hero__image" src={heroPuppy.images[0].src} alt={heroPuppy.images[0].alt} />
-        ) : null}
+        <video
+          className="hero__video"
+          src="/media/crown-puppy-hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
         <div className="hero__content">
           <div className="hero__copy">
             <p className="eyebrow">Boutique puppy adoption in {site.location}</p>

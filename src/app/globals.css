@@ -278,7 +278,7 @@ main {
   background: var(--ink);
 }
 
-.hero__image {
+.hero__video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -596,11 +596,45 @@ main {
   gap: 18px;
 }
 
+.process-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .feature-tile,
 .process-step,
 .testimonial,
 .policy-item {
   padding: 24px;
+}
+
+.process-step {
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  padding: 16px;
+}
+
+.process-step__media {
+  overflow: hidden;
+  border-radius: 8px;
+  background: #dfe6e2;
+}
+
+.process-step__media img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.process-step:hover .process-step__media img {
+  transform: scale(1.05);
+}
+
+.process-step__content {
+  min-width: 0;
 }
 
 .testimonial {
@@ -697,7 +731,7 @@ main {
   text-transform: uppercase;
 }
 
-.process-step span {
+.process-step__number {
   display: grid;
   width: 38px;
   height: 38px;
@@ -1100,8 +1134,14 @@ main {
   .policy-item,
   .inquiry-panel,
   .split-media,
-  .testimonial-feature {
+  .testimonial-feature,
+  .hero__copy,
+  .page-hero__inner {
     animation: card-rise 680ms ease both;
+  }
+
+  .hero__stats div {
+    animation: card-rise 720ms ease both;
   }
 
   .puppy-card:nth-child(2),
@@ -1109,7 +1149,8 @@ main {
   .process-step:nth-child(2),
   .testimonial:nth-child(2),
   .review-image-card:nth-child(2),
-  .policy-item:nth-child(2) {
+  .policy-item:nth-child(2),
+  .hero__stats div:nth-child(2) {
     animation-delay: 80ms;
   }
 
@@ -1118,7 +1159,8 @@ main {
   .process-step:nth-child(3),
   .testimonial:nth-child(3),
   .review-image-card:nth-child(3),
-  .policy-item:nth-child(3) {
+  .policy-item:nth-child(3),
+  .hero__stats div:nth-child(3) {
     animation-delay: 150ms;
   }
 
@@ -1381,8 +1423,55 @@ main {
     gap: 10px;
   }
 
+  .puppy-card .puppy-facts {
+    display: flex;
+    gap: 0;
+    padding: 10px 0;
+    border-top: 1px solid rgba(223, 230, 226, 0.9);
+    border-bottom: 1px solid rgba(223, 230, 226, 0.9);
+  }
+
+  .puppy-card .puppy-facts div {
+    flex: 1;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .puppy-card .puppy-facts div + div {
+    padding-left: 12px;
+    border-left: 1px solid rgba(223, 230, 226, 0.9);
+  }
+
+  .puppy-card .puppy-facts dt {
+    font-size: 0.62rem;
+  }
+
+  .puppy-card .puppy-facts dd {
+    font-size: 0.82rem;
+    line-height: 1.25;
+  }
+
   .puppy-card__actions {
     grid-template-columns: 1fr;
+  }
+
+  .process-step {
+    grid-template-columns: 74px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .process-step__number {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+    font-size: 0.8rem;
+  }
+
+  .process-step strong {
+    font-size: 0.98rem;
   }
 
   .split {
