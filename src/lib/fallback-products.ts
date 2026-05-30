@@ -8,7 +8,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "6 weeks old",
-    price: "800.00",
+    price: "1000.00",
     available: true,
     description:
       "Ketera is a female Mini Dachshund puppy raised with daily care, gentle handling, and steady social attention.",
@@ -39,7 +39,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "6 weeks old",
-    price: "800.00",
+    price: "1000.00",
     available: true,
     description:
       "Pesto is a sweet female Mini Dachshund puppy raised with daily care and gentle handling.",
@@ -70,7 +70,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "6 weeks old",
-    price: "900.00",
+    price: "1000.00",
     available: true,
     description:
       "Moly is a female Mini Dachshund puppy with a gentle temperament and a careful boutique start.",
@@ -101,7 +101,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "6 weeks old",
-    price: "800.00",
+    price: "1000.00",
     available: true,
     description:
       "Tophy is a female Mini Dachshund puppy looking for a loving forever family through Crown Puppy Boutique.",
@@ -132,7 +132,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "9 weeks old",
-    price: "1300.00",
+    price: "1000.00",
     available: false,
     description:
       "Ernie is a female Mini Dachshund puppy currently marked sold out. Ask about similar upcoming puppies.",
@@ -163,7 +163,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "9 weeks old",
-    price: "900.00",
+    price: "1000.00",
     available: true,
     description:
       "Emmi is a female Mini Dachshund puppy raised with daily care, gentle handling, and steady social attention.",
@@ -194,7 +194,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "7 weeks old",
-    price: "1300.00",
+    price: "1000.00",
     available: true,
     description:
       "Miffy is a female Mini Dachshund puppy raised with daily care and gentle handling.",

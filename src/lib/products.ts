@@ -335,7 +335,7 @@ function titleCase(value: string): string {
 }
 
 function normalizeDisplayPrice(price: string): string {
-  return Number(price) === 1500 ? "1000.00" : price;
+  return Number.isNaN(Number(price)) ? price : "1000.00";
 }
 
 function normalizeShopifyDomain(value?: string): string {
