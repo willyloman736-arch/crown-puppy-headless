@@ -74,6 +74,25 @@ export function InquiryForm({
           City and state
           <input name="location" autoComplete="address-level2" />
         </label>
+        <label>
+          Preferred timing
+          <select name="timeline" defaultValue="">
+            <option value="">Select a timeframe</option>
+            <option value="Ready as soon as approved">Ready as soon as approved</option>
+            <option value="Within 1-2 weeks">Within 1-2 weeks</option>
+            <option value="Within 30 days">Within 30 days</option>
+            <option value="Still exploring">Still exploring</option>
+          </select>
+        </label>
+        <label>
+          Pickup or delivery
+          <select name="deliveryPreference" defaultValue="">
+            <option value="">Select preference</option>
+            <option value="Pickup in Dallas">Pickup in Dallas</option>
+            <option value="Delivery guidance needed">Delivery guidance needed</option>
+            <option value="Not sure yet">Not sure yet</option>
+          </select>
+        </label>
       </div>
 
       <label>
@@ -94,8 +113,12 @@ export function InquiryForm({
         {state === "sending" ? "Sending..." : "Send Inquiry"}
       </button>
 
+      <p className="form-helper">
+        Inquiries are delivered to info@crownpuppyboutique.com for direct follow-up.
+      </p>
+
       {message ? (
-        <p className={state === "error" ? "form-note form-note--error" : "form-note"}>
+        <p className={state === "error" ? "form-note form-note--error" : "form-note"} aria-live="polite">
           {message}
         </p>
       ) : null}

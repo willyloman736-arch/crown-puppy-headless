@@ -16,6 +16,31 @@ export function generateStaticParams() {
   return fallbackPuppies.map((puppy) => ({ handle: puppy.handle }));
 }
 
+const detailTrust = [
+  "Health records reviewed",
+  "2-year health guarantee",
+  "Pickup and delivery guidance"
+];
+
+const includedItems = [
+  {
+    title: "Care details",
+    copy: "We review age, food, vaccination timing, and readiness before homecoming."
+  },
+  {
+    title: "Clear reservation path",
+    copy: "Availability is confirmed directly before the family moves forward."
+  },
+  {
+    title: "Transition support",
+    copy: "Pickup or delivery planning is handled around the puppy's readiness."
+  },
+  {
+    title: "Family-first communication",
+    copy: "Questions are welcome before and after the puppy joins your home."
+  }
+];
+
 export async function generateMetadata({
   params
 }: PuppyPageProps): Promise<Metadata> {
@@ -62,6 +87,12 @@ export default async function PuppyDetailPage({ params }: PuppyPageProps) {
           <h1>{puppy.name}</h1>
           <p>{puppy.description}</p>
           <p className="details-price">{formatPrice(puppy.price)}</p>
+
+          <div className="trust-row details-trust" aria-label="Reservation trust highlights">
+            {detailTrust.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
 
           <dl className="detail-list">
             <div>
@@ -117,6 +148,25 @@ export default async function PuppyDetailPage({ params }: PuppyPageProps) {
         </div>
       </section>
 
+      <section className="section section--tight">
+        <SectionIntro
+          eyebrow="Included with reservation"
+          title={`Prepared details for ${puppy.name}'s homecoming`}
+        >
+          The goal is a confident handoff, not a rushed checkout. Every family
+          gets the important details before pickup or delivery.
+        </SectionIntro>
+        <div className="included-grid included-grid--compact">
+          {includedItems.map((item) => (
+            <div className="included-item" key={item.title}>
+              <span aria-hidden="true" />
+              <strong>{item.title}</strong>
+              <p>{item.copy}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section className="section" id="inquiry">
         <SectionIntro
           eyebrow="Direct inquiry"
@@ -134,6 +184,12 @@ export default async function PuppyDetailPage({ params }: PuppyPageProps) {
           </div>
         </div>
       </section>
+
+      <div className="mobile-sticky-cta" aria-label="Quick puppy inquiry">
+        <a href="#inquiry" className="button button--gold">
+          {puppy.available ? "Reserve This Puppy" : "Join Waitlist"}
+        </a>
+      </div>
     </>
   );
 }

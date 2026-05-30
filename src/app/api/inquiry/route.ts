@@ -13,6 +13,8 @@ export async function POST(request: Request) {
   const message = text(values.message);
   const type = text(values.type) || "Website Inquiry";
   const puppy = text(values.puppy);
+  const timeline = text(values.timeline);
+  const deliveryPreference = text(values.deliveryPreference);
 
   if (!name || !email || !message) {
     return NextResponse.json(
@@ -34,6 +36,8 @@ export async function POST(request: Request) {
     `Email: ${email}`,
     phone ? `Phone: ${phone}` : "",
     location ? `Location: ${location}` : "",
+    timeline ? `Preferred timing: ${timeline}` : "",
+    deliveryPreference ? `Pickup or delivery: ${deliveryPreference}` : "",
     "",
     message
   ]
@@ -71,6 +75,8 @@ export async function POST(request: Request) {
         email,
         phone,
         location,
+        timeline,
+        deliveryPreference,
         message
       }),
       text: textBody
@@ -107,6 +113,8 @@ function htmlEmail(fields: Record<string, string>) {
       <p><strong>Email:</strong> ${escapeHtml(fields.email)}</p>
       ${fields.phone ? `<p><strong>Phone:</strong> ${escapeHtml(fields.phone)}</p>` : ""}
       ${fields.location ? `<p><strong>Location:</strong> ${escapeHtml(fields.location)}</p>` : ""}
+      ${fields.timeline ? `<p><strong>Preferred timing:</strong> ${escapeHtml(fields.timeline)}</p>` : ""}
+      ${fields.deliveryPreference ? `<p><strong>Pickup or delivery:</strong> ${escapeHtml(fields.deliveryPreference)}</p>` : ""}
       <p><strong>Message:</strong></p>
       <p>${escapeHtml(fields.message).replace(/\n/g, "<br />")}</p>
     </div>

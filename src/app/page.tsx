@@ -7,6 +7,25 @@ import { site } from "@/lib/site";
 
 export const revalidate = 300;
 
+const includedItems = [
+  {
+    title: "Health records",
+    copy: "Vaccination and care details are reviewed with families before pickup or delivery."
+  },
+  {
+    title: "Reservation guidance",
+    copy: "We confirm availability, timing, and next steps before any reservation is finalized."
+  },
+  {
+    title: "Homecoming support",
+    copy: "Pickup or delivery is coordinated directly so the transition feels organized."
+  },
+  {
+    title: "Boutique communication",
+    copy: "Families receive clear answers from inquiry through the first days at home."
+  }
+];
+
 export default async function HomePage() {
   const puppies = await getPuppies();
   const available = puppies.filter((puppy) => puppy.available);
@@ -34,6 +53,11 @@ export default async function HomePage() {
               Mini Dachshund puppies with clear reservation support from inquiry
               to homecoming.
             </p>
+            <div className="trust-row trust-row--hero" aria-label="Crown Puppy Boutique trust highlights">
+              <span>Health records</span>
+              <span>2-year guarantee</span>
+              <span>Pickup support</span>
+            </div>
             <div className="hero__actions">
               <Link href="/available-puppies" className="button button--gold">
                 View Available Puppies
@@ -134,6 +158,25 @@ export default async function HomePage() {
               homecoming feels calm and organized.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="section section--tight">
+        <SectionIntro
+          eyebrow="What's included"
+          title="Everything families need to feel prepared"
+        >
+          A premium puppy experience should feel clear, warm, and organized at
+          every step.
+        </SectionIntro>
+        <div className="included-grid">
+          {includedItems.map((item) => (
+            <div className="included-item" key={item.title}>
+              <span aria-hidden="true" />
+              <strong>{item.title}</strong>
+              <p>{item.copy}</p>
+            </div>
+          ))}
         </div>
       </section>
 
