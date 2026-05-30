@@ -108,9 +108,10 @@ export default async function HomePage() {
       <section className="split-band">
         <div className="section split">
           <div className="split-media">
-            {available[1]?.images[0] ? (
-              <img src={available[1].images[0].src} alt={available[1].images[0].alt} />
-            ) : null}
+            <img
+              src="/media/process-puppy-family.jpeg"
+              alt="Mini Dachshund mother and puppies together outdoors"
+            />
           </div>
           <div className="content-block">
             <p className="eyebrow">Premium adoption process</p>
