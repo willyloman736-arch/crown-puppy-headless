@@ -10,19 +10,40 @@ export const metadata: Metadata = {
 
 const testimonials = [
   {
+    image:
+      "https://crownpuppyboutique.com/cdn/shop/files/IMG-2950.jpg?v=1779219420&width=900",
+    title: "Smooth from the first message",
     quote:
-      "The process felt personal from the first message. We knew what to expect, what was included, and how pickup would work.",
-    name: "Crown Puppy Boutique family"
+      "Everything went smoothly, and our puppy arrived healthy, active, and full of energy. The communication throughout the process was excellent.",
+    name: "The Johnson Family",
+    detail: "Communication and arrival experience"
   },
   {
+    image:
+      "https://crownpuppyboutique.com/cdn/shop/files/IMG-3206.jpg?v=1779486091&width=900",
+    title: "Clear updates and a beautiful puppy",
     quote:
-      "The photos, updates, and communication made us feel comfortable before reserving. Everything was clear and professional.",
-    name: "Happy puppy parent"
+      "Our experience was amazing from start to finish. Updates were consistent, the process was clear, and we received a beautiful, well-cared-for puppy.",
+    name: "Michael and Sarah T.",
+    detail: "Updates and reservation clarity"
   },
   {
+    image:
+      "https://crownpuppyboutique.com/cdn/shop/files/IMG-3210.jpg?v=1779486091&width=900",
+    title: "A homecoming worth remembering",
     quote:
-      "Our questions were answered quickly, and the homecoming guidance helped us feel ready for the first week.",
-    name: "New puppy family"
+      "We brought our puppy home for our daughter's birthday, and it was the best surprise. She is completely in love with her new best friend.",
+    name: "The Mary Family",
+    detail: "Family homecoming story"
+  },
+  {
+    image:
+      "https://crownpuppyboutique.com/cdn/shop/files/E744DD07-8156-405D-9582-517DD65B05E2.jpg?v=1779978024&width=900",
+    title: "Professional and trustworthy",
+    quote:
+      "Very trustworthy and professional. Our puppy arrived safely, and the support after delivery has been outstanding. We could not be happier.",
+    name: "Daniel K.",
+    detail: "Delivery and aftercare support"
   }
 ];
 
@@ -65,27 +86,67 @@ export default function TestimonialsPage() {
   return (
     <>
       <PageHero eyebrow="Family stories" title="Testimonials">
-        Family notes and puppy photos from the customer review section, rebuilt
-        in a cleaner and more polished presentation.
+        Family notes and Crown Puppy Boutique review photos, rebuilt in a
+        cleaner and more polished presentation.
       </PageHero>
 
       <section className="section">
         <SectionIntro
           eyebrow="Kind words"
           title="A smoother adoption experience matters"
-        />
+        >
+          Real trust is built through clear communication, careful puppy
+          presentation, and thoughtful homecoming support.
+        </SectionIntro>
+
+        <div className="testimonial-feature">
+          <div className="testimonial-feature__media">
+            <img src={reviewImages[1].src} alt={reviewImages[1].alt} />
+          </div>
+          <div className="testimonial-feature__copy">
+            <p className="eyebrow">Customer care standard</p>
+            <h2>Photos, updates, and direct support before homecoming.</h2>
+            <p>
+              Crown Puppy Boutique keeps families informed before reservation,
+              during pickup or delivery planning, and through the first days at
+              home.
+            </p>
+            <div className="testimonial-metrics" aria-label="Customer experience highlights">
+              <div>
+                <strong>Direct</strong>
+                <span>communication</span>
+              </div>
+              <div>
+                <strong>Clear</strong>
+                <span>reservation steps</span>
+              </div>
+              <div>
+                <strong>Guided</strong>
+                <span>homecoming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="testimonial-grid">
           {testimonials.map((testimonial) => (
             <figure className="testimonial" key={testimonial.quote}>
-              <p>"{testimonial.quote}"</p>
-              <cite>{testimonial.name}</cite>
+              <img src={testimonial.image} alt={`${testimonial.name} testimonial`} />
+              <figcaption>
+                <span>{testimonial.detail}</span>
+                <h2>{testimonial.title}</h2>
+                <p>"{testimonial.quote}"</p>
+                <cite>{testimonial.name}</cite>
+              </figcaption>
             </figure>
           ))}
         </div>
 
-        <div className="review-strip" aria-label="Puppy gallery">
+        <div className="review-strip review-strip--editorial" aria-label="Crown Puppy Boutique review gallery">
           {reviewImages.map((image) => (
-            <img key={image.src} src={image.src} alt={image.alt} />
+            <div className="review-image-card" key={image.src}>
+              <img src={image.src} alt={image.alt} />
+            </div>
           ))}
         </div>
       </section>
