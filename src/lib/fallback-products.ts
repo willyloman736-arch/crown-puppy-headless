@@ -225,7 +225,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "7 weeks old",
-    price: "1500.00",
+    price: "1000.00",
     available: true,
     description:
       "Lola is a female Mini Dachshund puppy with a bright personality and a loving boutique start.",
@@ -256,7 +256,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "7 weeks old",
-    price: "1500.00",
+    price: "1000.00",
     available: true,
     description:
       "Slate is a female Mini Dachshund puppy with a standout coat and a playful personality.",
@@ -287,7 +287,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "7 weeks old",
-    price: "1500.00",
+    price: "1000.00",
     available: true,
     description:
       "Posie is a female Mini Dachshund puppy raised with love, care, and steady social attention.",
@@ -318,7 +318,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "7 weeks old",
-    price: "1500.00",
+    price: "1000.00",
     available: true,
     description:
       "Casper is a female Mini Dachshund puppy with a sweet and affectionate personality.",
@@ -349,7 +349,7 @@ export const fallbackPuppies: Puppy[] = [
     breed: "Mini Dachshund",
     gender: "Female",
     age: "6 weeks old",
-    price: "1500.00",
+    price: "1000.00",
     available: true,
     description:
       "Sienna is a female Mini Dachshund puppy ready for a loving forever home through Crown Puppy Boutique.",

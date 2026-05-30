@@ -127,7 +127,7 @@ export async function getAvailablePuppies(): Promise<Puppy[]> {
 }
 
 export function formatPrice(price: string): string {
-  const value = Number(price);
+  const value = Number(normalizeDisplayPrice(price));
 
   if (Number.isNaN(value)) {
     return `$${price}`;
@@ -234,7 +234,7 @@ function normalizeStorefrontProduct(product: StorefrontProduct): Puppy {
     breed: extractBreed(cleanTitle),
     gender: extractGender(cleanTitle),
     age: extractAge(cleanTitle),
-    price: firstVariant?.price.amount || fallback?.price || "0",
+    price: normalizeDisplayPrice(firstVariant?.price.amount || fallback?.price || "0"),
     available:
       firstVariant?.availableForSale ?? product.availableForSale ?? fallback?.available ?? true,
     description:
@@ -279,7 +279,7 @@ function normalizeShopifyProduct(product: ShopifyProduct): Puppy {
     breed: extractBreed(cleanTitle),
     gender: extractGender(cleanTitle),
     age: extractAge(cleanTitle),
-    price: firstVariant?.price || fallback?.price || "0",
+    price: normalizeDisplayPrice(firstVariant?.price || fallback?.price || "0"),
     available: firstVariant?.available ?? fallback?.available ?? true,
     description:
       stripHtml(product.body_html || "") ||
@@ -332,6 +332,10 @@ function extractAge(title: string): string {
 
 function titleCase(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+}
+
+function normalizeDisplayPrice(price: string): string {
+  return Number(price) === 1500 ? "1000.00" : price;
 }
 
 function normalizeShopifyDomain(value?: string): string {
