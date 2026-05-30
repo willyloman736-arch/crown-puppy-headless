@@ -21,20 +21,22 @@ export default async function HomePage() {
           <img className="hero__image" src={heroPuppy.images[0].src} alt={heroPuppy.images[0].alt} />
         ) : null}
         <div className="hero__content">
-          <p className="eyebrow">Boutique puppy adoption in {site.location}</p>
-          <h1>Crown Puppy Boutique</h1>
-          <p>
-            A polished, family-first adoption experience for carefully raised
-            Mini Dachshund puppies with clear reservation support from inquiry
-            to homecoming.
-          </p>
-          <div className="hero__actions">
-            <Link href="/available-puppies" className="button button--gold">
-              View Available Puppies
-            </Link>
-            <Link href="/reservation-agreement" className="button button--light">
-              Reservation Details
-            </Link>
+          <div className="hero__copy">
+            <p className="eyebrow">Boutique puppy adoption in {site.location}</p>
+            <h1>Crown Puppy Boutique</h1>
+            <p>
+              A polished, family-first adoption experience for carefully raised
+              Mini Dachshund puppies with clear reservation support from inquiry
+              to homecoming.
+            </p>
+            <div className="hero__actions">
+              <Link href="/available-puppies" className="button button--gold">
+                View Available Puppies
+              </Link>
+              <Link href="/reservation-agreement" className="button button--light">
+                Reservation Details
+              </Link>
+            </div>
           </div>
           <div className="hero__stats" aria-label="Store highlights">
             <div>
@@ -67,7 +69,7 @@ export default async function HomePage() {
             <PuppyCard key={puppy.id} puppy={puppy} />
           ))}
         </div>
-        <div className="hero__actions" style={{ justifyContent: "center", color: "var(--ink)" }}>
+        <div className="section-actions">
           <Link href="/available-puppies" className="button button--dark">
             See All Puppies
           </Link>

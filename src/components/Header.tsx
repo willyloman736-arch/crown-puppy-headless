@@ -28,6 +28,27 @@ export function Header() {
         <Link href="/contact" className="header-action">
           Inquire
         </Link>
+
+        <details className="mobile-menu">
+          <summary>
+            <span className="menu-icon" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+            Menu
+          </summary>
+          <div className="mobile-menu__panel">
+            {site.nav.map((item) => (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/contact" className="mobile-menu__action">
+              Send an Inquiry
+            </Link>
+          </div>
+        </details>
       </div>
     </header>
   );
