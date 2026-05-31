@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const testimonials = [
   {
     image:
-      "https://crownpuppyboutique.com/cdn/shop/files/IMG-2950.jpg?v=1779219420&width=900",
+      "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-2950.jpg?v=1779219420&width=900",
     title: "Smooth from the first message",
     quote:
       "Everything went smoothly, and our puppy arrived healthy, active, and full of energy. The communication throughout the process was excellent.",
@@ -20,7 +20,7 @@ const testimonials = [
   },
   {
     image:
-      "https://crownpuppyboutique.com/cdn/shop/files/IMG-3206.jpg?v=1779486091&width=900",
+      "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-3206.jpg?v=1779486091&width=900",
     title: "Clear updates and a beautiful puppy",
     quote:
       "Our experience was amazing from start to finish. Updates were consistent, the process was clear, and we received a beautiful, well-cared-for puppy.",
@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     image:
-      "https://crownpuppyboutique.com/cdn/shop/files/IMG-3210.jpg?v=1779486091&width=900",
+      "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-3210.jpg?v=1779486091&width=900",
     title: "A homecoming worth remembering",
     quote:
       "We brought our puppy home for our daughter's birthday, and it was the best surprise. She is completely in love with her new best friend.",
@@ -38,7 +38,7 @@ const testimonials = [
   },
   {
     image:
-      "https://crownpuppyboutique.com/cdn/shop/files/E744DD07-8156-405D-9582-517DD65B05E2.jpg?v=1779978024&width=900",
+      "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/E744DD07-8156-405D-9582-517DD65B05E2.jpg?v=1779978024&width=900",
     title: "Professional and trustworthy",
     quote:
       "Very trustworthy and professional. Our puppy arrived safely, and the support after delivery has been outstanding. We could not be happier.",
@@ -49,35 +49,35 @@ const testimonials = [
 
 const reviewImages = [
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/IMG-2950.jpg?v=1779219420&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-2950.jpg?v=1779219420&width=900",
     alt: "Customer review puppy photo"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/IMG-2949.jpg?v=1779219420&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-2949.jpg?v=1779219420&width=900",
     alt: "Customer review puppy portrait"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/IMG-3206.jpg?v=1779486091&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-3206.jpg?v=1779486091&width=900",
     alt: "Customer review puppy sitting"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/IMG-3207.jpg?v=1779486091&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-3207.jpg?v=1779486091&width=900",
     alt: "Customer review puppy closeup"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/IMG-3210.jpg?v=1779486091&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-3210.jpg?v=1779486091&width=900",
     alt: "Customer review puppy on blanket"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/IMG-3211_5a20cd4b-7a03-4088-b647-ba162bb4ee7e.jpg?v=1779486091&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/IMG-3211_5a20cd4b-7a03-4088-b647-ba162bb4ee7e.jpg?v=1779486091&width=900",
     alt: "Customer review puppy resting"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/E744DD07-8156-405D-9582-517DD65B05E2.jpg?v=1779978024&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/E744DD07-8156-405D-9582-517DD65B05E2.jpg?v=1779978024&width=900",
     alt: "Customer review puppy in studio"
   },
   {
-    src: "https://crownpuppyboutique.com/cdn/shop/files/DE1674D8-2DCF-4901-94D6-7E6CCADD4E54.jpg?v=1779978024&width=900",
+    src: "https://cdn.shopify.com/s/files/1/0837/1231/1546/files/DE1674D8-2DCF-4901-94D6-7E6CCADD4E54.jpg?v=1779978024&width=900",
     alt: "Customer review puppy profile"
   }
 ];
@@ -153,3 +153,4 @@ export default function TestimonialsPage() {
     </>
   );
 }
+
