@@ -26,9 +26,10 @@ export function Footer() {
           </div>
         </div>
 
-        <div>
+        <div className="footer-contact">
           <h2>Contact</h2>
           <p>{site.location}</p>
+          <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
           <a href={`mailto:${site.email}`}>{site.email}</a>
           <Link href="/contact" className="footer-button">
             Send an inquiry

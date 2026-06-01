@@ -1294,6 +1294,16 @@ main {
   gap: 10px;
 }
 
+.footer-contact {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.footer-contact p {
+  margin: 0;
+}
+
 .footer-links a,
 .footer-grid a {
   color: rgba(255, 255, 255, 0.86);
@@ -1301,7 +1311,7 @@ main {
 
 .footer-button {
   width: fit-content;
-  margin-top: 14px;
+  margin-top: 4px;
   background: var(--gold);
 }
 

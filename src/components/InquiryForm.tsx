@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { site } from "@/lib/site";
 
 type InquiryFormProps = {
   type?: "Contact" | "Puppy Inquiry" | "Reservation" | "Waitlist";
@@ -47,7 +48,7 @@ export function InquiryForm({
       setMessage(
         error instanceof Error
           ? error.message
-          : "Something went wrong. Please email info@crownpuppyboutique.com."
+          : `Something went wrong. Please call or text ${site.phoneDisplay}.`
       );
     }
   }
@@ -114,7 +115,7 @@ export function InquiryForm({
       </button>
 
       <p className="form-helper">
-        Inquiries are delivered to info@crownpuppyboutique.com for direct follow-up.
+        Inquiries are delivered to {site.email}. You can also call or text {site.phoneDisplay}.
       </p>
 
       {message ? (

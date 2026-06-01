@@ -6,7 +6,7 @@ export function Header() {
     <header className="site-header">
       <div className="announcement">
         <span>Private boutique puppy placements by appointment</span>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
       </div>
       <div className="nav-wrap">
         <Link href="/" className="brand" aria-label="Crown Puppy Boutique home">
@@ -44,6 +44,7 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
             <Link href="/contact" className="mobile-menu__action">
               Send an Inquiry
             </Link>

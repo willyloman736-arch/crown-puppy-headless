@@ -1,6 +1,8 @@
 export const site = {
   name: "Crown Puppy Boutique",
   email: "info@crownpuppyboutique.com",
+  phone: "+12083298342",
+  phoneDisplay: "+1 (208) 329-8342",
   location: "Dallas, Texas",
   domain: "crownpuppyboutique.com",
   shopifyProductsUrl:

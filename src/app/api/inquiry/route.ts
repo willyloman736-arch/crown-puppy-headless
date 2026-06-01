@@ -50,8 +50,8 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message: isProduction
-          ? "Email delivery is not configured yet. Please email info@crownpuppyboutique.com directly."
-          : "Preview received. Add RESEND_API_KEY before launch so this sends to info@crownpuppyboutique.com."
+          ? `Email delivery is not configured yet. Please call or text ${site.phoneDisplay}.`
+          : `Preview received. Add RESEND_API_KEY before launch so this sends to ${site.email}.`
       },
       { status: isProduction ? 503 : 200 }
     );
@@ -87,7 +87,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message:
-          "The form could not send right now. Please email info@crownpuppyboutique.com directly."
+          `The form could not send right now. Please call or text ${site.phoneDisplay}.`
       },
       { status: 502 }
     );
@@ -95,7 +95,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json({
     message:
-      "Thank you. Your inquiry was sent to info@crownpuppyboutique.com."
+      `Thank you. Your inquiry was sent to ${site.email}.`
   });
 }
 

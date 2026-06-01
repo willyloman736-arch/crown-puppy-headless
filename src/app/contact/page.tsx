@@ -14,8 +14,8 @@ export default function ContactPage() {
   return (
     <>
       <PageHero eyebrow="Contact" title="Speak with Crown Puppy Boutique">
-        Tell us which puppy you are interested in, where you are located, and
-        your ideal timeline. We will respond from {site.email}.
+        Call or text {site.phoneDisplay}, or send details through the form with
+        the puppy you are interested in, your location, and your ideal timeline.
       </PageHero>
 
       <section className="section split">
@@ -27,6 +27,9 @@ export default function ContactPage() {
             delivery questions, or waitlist requests.
           </p>
           <ul className="check-list">
+            <li>
+              Call or text: <a href={`tel:${site.phone}`}>{site.phoneDisplay}</a>
+            </li>
             <li>Email: {site.email}</li>
             <li>Location: {site.location}</li>
             <li>Appointments and delivery are coordinated directly</li>
