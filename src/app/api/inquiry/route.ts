@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { site } from "@/lib/site";
 
-const resendEndpoint = "https://api.resend.com/emails";
+const web3FormsEndpoint = "https://api.web3forms.com/submit";
+const fallbackAccessKey = "74404394-155f-445b-a923-8f1bd2e64264";
 
 export async function POST(request: Request) {
   const formData = await request.formData();
@@ -23,11 +24,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const toEmail = process.env.CONTACT_TO_EMAIL || site.email;
-  const fromEmail =
-    process.env.CONTACT_FROM_EMAIL ||
-    `Crown Puppy Boutique <hello@${site.domain}>`;
-  const apiKey = process.env.RESEND_API_KEY;
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY || fallbackAccessKey;
 
   const textBody = [
     `Type: ${type}`,
@@ -44,46 +41,48 @@ export async function POST(request: Request) {
     .filter(Boolean)
     .join("\n");
 
-  if (!apiKey) {
-    const isProduction = process.env.NODE_ENV === "production";
+  let response: Response;
 
+  try {
+    const payload = new URLSearchParams({
+      access_key: accessKey,
+      from_name: site.name,
+      subject: `[Crown Puppy Boutique] ${puppy || type}`,
+      name,
+      email,
+      phone,
+      location,
+      type,
+      puppy,
+      timeline,
+      deliveryPreference,
+      message: textBody,
+      replyto: email,
+      botcheck: ""
+    });
+
+    response = await fetch(web3FormsEndpoint, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: payload
+    });
+  } catch {
     return NextResponse.json(
       {
-        message: isProduction
-          ? `Email delivery is not configured yet. Please call or text ${site.phoneDisplay}.`
-          : `Preview received. Add RESEND_API_KEY before launch so this sends to ${site.email}.`
+        message:
+          `The form could not send right now. Please call or text ${site.phoneDisplay}.`
       },
-      { status: isProduction ? 503 : 200 }
+      { status: 502 }
     );
   }
 
-  const response = await fetch(resendEndpoint, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      from: fromEmail,
-      to: [toEmail],
-      reply_to: email,
-      subject: `[Crown Puppy Boutique] ${puppy || type}`,
-      html: htmlEmail({
-        type,
-        puppy,
-        name,
-        email,
-        phone,
-        location,
-        timeline,
-        deliveryPreference,
-        message
-      }),
-      text: textBody
-    })
-  });
+  const result = (await response.json().catch(() => null)) as
+    | { success?: boolean; message?: string }
+    | null;
 
-  if (!response.ok) {
+  if (!response.ok || result?.success === false) {
     return NextResponse.json(
       {
         message:
@@ -101,31 +100,4 @@ export async function POST(request: Request) {
 
 function text(value: FormDataEntryValue | undefined): string {
   return typeof value === "string" ? value.trim() : "";
-}
-
-function htmlEmail(fields: Record<string, string>) {
-  return `
-    <div style="font-family:Arial,sans-serif;line-height:1.5;color:#171a1d">
-      <h1 style="font-size:22px">New Crown Puppy Boutique inquiry</h1>
-      <p><strong>Type:</strong> ${escapeHtml(fields.type)}</p>
-      ${fields.puppy ? `<p><strong>Puppy:</strong> ${escapeHtml(fields.puppy)}</p>` : ""}
-      <p><strong>Name:</strong> ${escapeHtml(fields.name)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(fields.email)}</p>
-      ${fields.phone ? `<p><strong>Phone:</strong> ${escapeHtml(fields.phone)}</p>` : ""}
-      ${fields.location ? `<p><strong>Location:</strong> ${escapeHtml(fields.location)}</p>` : ""}
-      ${fields.timeline ? `<p><strong>Preferred timing:</strong> ${escapeHtml(fields.timeline)}</p>` : ""}
-      ${fields.deliveryPreference ? `<p><strong>Pickup or delivery:</strong> ${escapeHtml(fields.deliveryPreference)}</p>` : ""}
-      <p><strong>Message:</strong></p>
-      <p>${escapeHtml(fields.message).replace(/\n/g, "<br />")}</p>
-    </div>
-  `;
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 }

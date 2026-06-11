@@ -27,18 +27,16 @@ npm run start
 ## Required launch environment variables
 
 ```bash
-CONTACT_TO_EMAIL=info@crownpuppyboutique.com
-CONTACT_FROM_EMAIL=Crown Puppy Boutique <hello@crownpuppyboutique.com>
-RESEND_API_KEY=your_resend_api_key
+WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
 SHOPIFY_STORE_DOMAIN=crownpuppyboutique.myshopify.com
 SHOPIFY_STOREFRONT_ACCESS_TOKEN=your_storefront_access_token
 SHOPIFY_API_VERSION=2026-04
 NEXT_PUBLIC_SHOPIFY_PUBLIC_PRODUCTS_URL=https://crownpuppyboutique.com/products.json?limit=250
 ```
 
-Without `RESEND_API_KEY`, the form route is present but production email
-delivery is not active. For the longer-term clean setup, replace the public
-products feed with Shopify Storefront API credentials.
+Form submissions are sent through Web3Forms to the verified recipient email.
+For the longer-term clean catalog setup, replace the public products feed with
+Shopify Storefront API credentials.
 
 ## Shopify product feed
 
