@@ -6,8 +6,12 @@ export function Footer() {
     <footer className="site-footer">
       <div className="footer-grid">
         <div>
-          <Link href="/" className="footer-brand">
-            {site.name}
+          <Link href="/" className="footer-brand" aria-label={site.name}>
+            <img
+              src="/media/crown-puppy-logo.jpeg"
+              alt={site.name}
+              className="footer-logo"
+            />
           </Link>
           <p>
             A polished, careful puppy adoption experience for families looking

@@ -10,11 +10,12 @@ export function Header() {
       </div>
       <div className="nav-wrap">
         <Link href="/" className="brand" aria-label="Crown Puppy Boutique home">
-          <span className="brand-mark">CPB</span>
-          <span>
-            <strong>{site.name}</strong>
-            <small>{site.location}</small>
-          </span>
+          <img
+            src="/media/crown-puppy-logo.jpeg"
+            alt="Crown Puppy Boutique"
+            className="brand-logo"
+          />
+          <small className="brand-location">{site.location}</small>
         </Link>
 
         <nav className="nav-links" aria-label="Main navigation">

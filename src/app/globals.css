@@ -91,37 +91,34 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  min-width: 220px;
+  min-width: 0;
 }
 
-.brand-mark {
-  display: grid;
-  width: 42px;
-  height: 42px;
-  place-items: center;
-  border: 1px solid rgba(183, 139, 63, 0.45);
-  border-radius: 8px;
-  color: var(--ink);
-  background: linear-gradient(135deg, #ffffff, #efe5d1);
-  font-size: 0.75rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-}
-
-.brand strong,
-.footer-brand {
+.brand-logo {
   display: block;
+  height: 58px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.footer-brand {
+  display: inline-block;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.1rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
-.brand small {
+.brand-location {
   display: block;
+  padding-left: 12px;
+  border-left: 1px solid rgba(183, 139, 63, 0.4);
   color: var(--muted);
-  font-size: 0.75rem;
-  margin-top: 1px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .nav-links {
@@ -1280,8 +1277,21 @@ main {
 }
 
 .footer-brand {
+  display: inline-block;
+  margin-bottom: 14px;
   color: var(--paper);
   font-size: 1.25rem;
+}
+
+.footer-logo {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
 }
 
 .footer-grid p {
@@ -1461,24 +1471,13 @@ main {
     gap: 9px;
   }
 
-  .brand-mark {
-    width: 34px;
-    height: 34px;
-    border-radius: 7px;
-    font-size: 0.66rem;
+  .brand-logo {
+    height: 44px;
+    max-width: 150px;
   }
 
-  .brand strong {
-    max-width: 160px;
-    overflow: hidden;
-    font-size: 0.86rem;
-    line-height: 1;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .brand small {
-    font-size: 0.68rem;
+  .brand-location {
+    display: none;
   }
 
   .header-action {
@@ -1824,8 +1823,9 @@ main {
     max-width: 170px;
   }
 
-  .brand strong {
-    max-width: 132px;
+  .brand-logo {
+    height: 38px;
+    max-width: 130px;
   }
 
   .hero__stats {
