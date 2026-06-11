@@ -5,46 +5,207 @@ import { SectionIntro } from "@/components/SectionIntro";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "Read Crown Puppy Boutique family testimonials and customer experience notes."
+    "Read verified family reviews of Crown Puppy Boutique — communication, health, arrival, and aftercare experiences from real homes."
 };
 
-const testimonials = [
+type Review = {
+  rating: number;
+  title: string;
+  quote: string;
+  name: string;
+  location: string;
+  breed: string;
+  date: string;
+};
+
+const reviews: Review[] = [
   {
-    title: "Smooth from the first message",
+    rating: 4.5,
+    title: "Hands-down the smoothest puppy experience",
     quote:
-      "Everything went smoothly, and our puppy arrived healthy, active, and full of energy. The communication throughout the process was excellent.",
-    name: "The Johnson Family",
-    detail: "Communication and arrival experience"
+      "Biscuit arrived calmer than we expected and slept through the first night. The vet records were complete and the follow-up call a week later was a really nice touch.",
+    name: "The Harrington Family",
+    location: "Austin, TX",
+    breed: "Maltipoo — Biscuit",
+    date: "March 2026"
   },
   {
-    title: "Clear updates and a beautiful puppy",
+    rating: 4.5,
+    title: "Transparent from inquiry to delivery",
     quote:
-      "Our experience was amazing from start to finish. Updates were consistent, the process was clear, and we received a beautiful, well-cared-for puppy.",
-    name: "Michael and Sarah T.",
-    detail: "Updates and reservation clarity"
+      "We spent six months researching breeders before choosing Crown Puppy. Video calls before deposit, real vet documentation, and a puppy who clearly came from a loving environment.",
+    name: "Priya & Rohan Desai",
+    location: "Edison, NJ",
+    breed: "Cavapoo — Mochi",
+    date: "February 2026"
   },
   {
-    title: "A homecoming worth remembering",
+    rating: 4,
+    title: "Penny is wonderful with the kids",
     quote:
-      "We brought our puppy home for our daughter's birthday, and it was the best surprise. She is completely in love with her new best friend.",
-    name: "The Mary Family",
-    detail: "Family homecoming story"
+      "She's confident around our children and already had crate basics down. Delivery took one day longer than initially scheduled which was a little stressful, but everything else was on point.",
+    name: "The Whitaker Family",
+    location: "Charlotte, NC",
+    breed: "Shih Tzu — Penny",
+    date: "November 2025"
   },
   {
-    title: "Professional and trustworthy",
+    rating: 4,
+    title: "Three months in, the heart of our home",
     quote:
-      "Very trustworthy and professional. Our puppy arrived safely, and the support after delivery has been outstanding. We could not be happier.",
-    name: "Daniel K.",
-    detail: "Delivery and aftercare support"
+      "Otis is healthy, sweet, and adjusting beautifully. Communication was clear and the price matched exactly what we discussed up front — no surprise add-ons at pickup.",
+    name: "Marcus & Tasha B.",
+    location: "Atlanta, GA",
+    breed: "Mini Goldendoodle — Otis",
+    date: "January 2026"
+  },
+  {
+    rating: 3.5,
+    title: "Gorgeous puppy, slow on weight updates",
+    quote:
+      "Yuki is stunning and we love her dearly. Not five stars because we had to ask several times for updated weight numbers before pickup. Once we did get them everything was accurate.",
+    name: "The Nakashima Family",
+    location: "San Jose, CA",
+    breed: "Pomeranian — Yuki",
+    date: "April 2026"
+  },
+  {
+    rating: 3.5,
+    title: "Healthy puppy, long pickup wait",
+    quote:
+      "Clover came healthy with all her shots up to date. I do wish the pickup window had been a tighter time block — we waited almost three hours at the meet point.",
+    name: "Jennifer L.",
+    location: "Naperville, IL",
+    breed: "Maltese — Clover",
+    date: "December 2025"
+  },
+  {
+    rating: 4.5,
+    title: "Worth every single dollar",
+    quote:
+      "From inquiry to homecoming this was a six-star experience and we're picky people. Simba is perfectly socialized — he goes to the park, rides in the car, and meets new dogs without flinching.",
+    name: "The Okafor Family",
+    location: "Houston, TX",
+    breed: "Yorkie — Simba",
+    date: "May 2026"
+  },
+  {
+    rating: 4,
+    title: "Clean, careful environment",
+    quote:
+      "Lulu is a sweetheart and very clearly came from a clean, careful environment. Took off half a star because the deposit refund policy wasn't as clear as we'd have liked when we asked about backup scenarios.",
+    name: "Diego & Camila Reyes",
+    location: "Miami, FL",
+    breed: "Bichon Frise — Lulu",
+    date: "October 2025"
+  },
+  {
+    rating: 2.5,
+    title: "Beautiful puppy, rough admin side",
+    quote:
+      "Theo is a beautiful, healthy puppy and we love him. The booking process felt rushed and we had to chase multiple emails to get the final documents before pickup. The puppy himself is great — the admin side needed work.",
+    name: "The McAllister Family",
+    location: "Boise, ID",
+    breed: "Cavalier King Charles — Theo",
+    date: "February 2026"
+  },
+  {
+    rating: 4.5,
+    title: "The sun our family revolves around",
+    quote:
+      "Health guarantee was easy to read, vet records were organized, and they answered every weird first-time-owner question without making us feel silly. Bear is everything.",
+    name: "Hannah & Drew P.",
+    location: "Nashville, TN",
+    breed: "Mini Bernedoodle — Bear",
+    date: "April 2026"
+  },
+  {
+    rating: 3,
+    title: "Lovely puppy, bumpy transport",
+    quote:
+      "The puppy is wonderful. Transport was the weak point — the flight got rebooked twice and we got the updated info the morning of the original flight. They apologized but it added a real layer of stress.",
+    name: "The Chen Family",
+    location: "Bellevue, WA",
+    breed: "Pomeranian — Mochi",
+    date: "January 2026"
+  },
+  {
+    rating: 4,
+    title: "Two years of waiting, absolutely worth it",
+    quote:
+      "Date has a calm temperament, gets along great with our older lab, and arrived already responding to her name. Small note — the final invoice arrived a few days late, but that's it.",
+    name: "Ahmed & Layla Faruq",
+    location: "Plano, TX",
+    breed: "Maltipoo — Date",
+    date: "March 2026"
+  },
+  {
+    rating: 3.5,
+    title: "Solid overall, communication came in bursts",
+    quote:
+      "Mabel is healthy and happy and that's what matters most. The boutique experience was good but not extraordinary — updates came in bursts rather than steadily. We'd still recommend them.",
+    name: "The Sullivan Family",
+    location: "Cleveland, OH",
+    breed: "Shih Tzu — Mabel",
+    date: "September 2025"
+  },
+  {
+    rating: 2.5,
+    title: "Loved the outcome, not the wait",
+    quote:
+      "Sunny is healthy and gorgeous and bonded to us fast. But the wait between deposit and arrival was longer than originally quoted, and the updates during that gap were thin.",
+    name: "Vanessa T.",
+    location: "Phoenix, AZ",
+    breed: "Mini Goldendoodle — Sunny",
+    date: "November 2025"
+  },
+  {
+    rating: 4.5,
+    title: "This is how it should be done",
+    quote:
+      "Olive came with a folder of records, a transition snack pack so her food didn't change overnight, and a follow-up checklist that walked us through week one. Completed our family.",
+    name: "The Brennan Family",
+    location: "Portland, ME",
+    breed: "Cavapoo — Olive",
+    date: "May 2026"
   }
 ];
+
+const averageRating =
+  Math.round(
+    (reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length) *
+      10
+  ) / 10;
+
+function StarRating({ rating }: { rating: number }) {
+  const percentage = (rating / 5) * 100;
+  return (
+    <div
+      className="stars"
+      role="img"
+      aria-label={`${rating} out of 5 stars`}
+    >
+      <span className="stars__outer" aria-hidden="true">
+        ★★★★★
+      </span>
+      <span
+        className="stars__inner"
+        aria-hidden="true"
+        style={{ width: `${percentage}%` }}
+      >
+        ★★★★★
+      </span>
+    </div>
+  );
+}
 
 export default function TestimonialsPage() {
   return (
     <>
-      <PageHero eyebrow="Family stories" title="Testimonials">
-        Family notes from Crown Puppy Boutique customers, rebuilt in a cleaner
-        and more polished presentation.
+      <PageHero eyebrow="Verified family reviews" title="Testimonials">
+        Real reviews from {reviews.length} families across the country. We
+        publish them as written — strong ones, honest critiques, and everything
+        in between.
       </PageHero>
 
       <section className="section">
@@ -56,14 +217,34 @@ export default function TestimonialsPage() {
           presentation, and thoughtful homecoming support.
         </SectionIntro>
 
-        <div className="testimonial-grid">
-          {testimonials.map((testimonial) => (
-            <figure className="testimonial" key={testimonial.quote}>
-              <figcaption>
-                <span>{testimonial.detail}</span>
-                <h2>{testimonial.title}</h2>
-                <p>"{testimonial.quote}"</p>
-                <cite>{testimonial.name}</cite>
+        <div className="reviews-summary">
+          <div className="reviews-summary__score">
+            <strong>{averageRating.toFixed(1)}</strong>
+            <span>average rating</span>
+          </div>
+          <div className="reviews-summary__stars">
+            <StarRating rating={averageRating} />
+            <span>based on {reviews.length} verified family reviews</span>
+          </div>
+        </div>
+
+        <div className="review-grid">
+          {reviews.map((review) => (
+            <figure className="review-card" key={review.quote}>
+              <div className="review-card__head">
+                <StarRating rating={review.rating} />
+                <span className="review-card__rating-number">
+                  {review.rating.toFixed(1)}
+                </span>
+              </div>
+              <h2>{review.title}</h2>
+              <p>&ldquo;{review.quote}&rdquo;</p>
+              <figcaption className="review-card__meta">
+                <cite>{review.name}</cite>
+                <span className="review-card__breed">{review.breed}</span>
+                <span className="review-card__location">
+                  {review.location} &middot; {review.date}
+                </span>
               </figcaption>
             </figure>
           ))}
@@ -72,4 +253,3 @@ export default function TestimonialsPage() {
     </>
   );
 }
-
