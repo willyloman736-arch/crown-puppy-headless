@@ -16,6 +16,7 @@ type Review = {
   location: string;
   breed: string;
   date: string;
+  photo?: string;
 };
 
 const reviews: Review[] = [
@@ -23,31 +24,34 @@ const reviews: Review[] = [
     rating: 4.5,
     title: "Hands-down the smoothest puppy experience",
     quote:
-      "Biscuit arrived calmer than we expected and slept through the first night. The vet records were complete and the follow-up call a week later was a really nice touch.",
+      "Biscuit arrived calmer than we expected and slept through the first night on the car ride home. The vet records were complete and the follow-up call a week later was a really nice touch.",
     name: "The Harrington Family",
     location: "Austin, TX",
-    breed: "Maltipoo — Biscuit",
-    date: "March 2026"
+    breed: "Mini Dachshund — Chocolate Longhair, Biscuit",
+    date: "March 2026",
+    photo: "/media/reviews/review-1.jpeg"
   },
   {
     rating: 4.5,
     title: "Transparent from inquiry to delivery",
     quote:
-      "We spent six months researching breeders before choosing Crown Puppy. Video calls before deposit, real vet documentation, and a puppy who clearly came from a loving environment.",
+      "We spent six months researching breeders before choosing Crown Puppy. Video calls before deposit, real vet documentation, and a blue-eyed dapple girl who clearly came from a loving environment.",
     name: "Priya & Rohan Desai",
     location: "Edison, NJ",
-    breed: "Cavapoo — Mochi",
-    date: "February 2026"
+    breed: "Mini Dachshund — Isabella Dapple, Mochi",
+    date: "February 2026",
+    photo: "/media/reviews/review-2.jpeg"
   },
   {
     rating: 4,
     title: "Penny is wonderful with the kids",
     quote:
-      "She's confident around our children and already had crate basics down. Delivery took one day longer than initially scheduled which was a little stressful, but everything else was on point.",
+      "She's confident around our children and bonded with us instantly. Delivery took one day longer than initially scheduled which was a little stressful, but everything else was on point.",
     name: "The Whitaker Family",
     location: "Charlotte, NC",
-    breed: "Shih Tzu — Penny",
-    date: "November 2025"
+    breed: "Mini Dachshund — Chocolate Longhair, Penny",
+    date: "November 2025",
+    photo: "/media/reviews/review-3.jpeg"
   },
   {
     rating: 4,
@@ -56,8 +60,9 @@ const reviews: Review[] = [
       "Otis is healthy, sweet, and adjusting beautifully. Communication was clear and the price matched exactly what we discussed up front — no surprise add-ons at pickup.",
     name: "Marcus & Tasha B.",
     location: "Atlanta, GA",
-    breed: "Mini Goldendoodle — Otis",
-    date: "January 2026"
+    breed: "Mini Dachshund — Cream Longhair, Otis",
+    date: "January 2026",
+    photo: "/media/reviews/review-4.jpeg"
   },
   {
     rating: 3.5,
@@ -66,7 +71,7 @@ const reviews: Review[] = [
       "Yuki is stunning and we love her dearly. Not five stars because we had to ask several times for updated weight numbers before pickup. Once we did get them everything was accurate.",
     name: "The Nakashima Family",
     location: "San Jose, CA",
-    breed: "Pomeranian — Yuki",
+    breed: "Mini Dachshund — Cream, Yuki",
     date: "April 2026"
   },
   {
@@ -76,18 +81,19 @@ const reviews: Review[] = [
       "Clover came healthy with all her shots up to date. I do wish the pickup window had been a tighter time block — we waited almost three hours at the meet point.",
     name: "Jennifer L.",
     location: "Naperville, IL",
-    breed: "Maltese — Clover",
+    breed: "Mini Dachshund — Red Longhair, Clover",
     date: "December 2025"
   },
   {
     rating: 4.5,
     title: "Worth every single dollar",
     quote:
-      "From inquiry to homecoming this was a six-star experience and we're picky people. Simba is perfectly socialized — he goes to the park, rides in the car, and meets new dogs without flinching.",
+      "From inquiry to homecoming this was a six-star experience and we're picky people. Simba is perfectly socialized — he rides in the car, meets new dogs, and isn't fazed by anything.",
     name: "The Okafor Family",
     location: "Houston, TX",
-    breed: "Yorkie — Simba",
-    date: "May 2026"
+    breed: "Mini Dachshund — Silver Dapple, Simba",
+    date: "May 2026",
+    photo: "/media/reviews/review-5.jpeg"
   },
   {
     rating: 4,
@@ -96,7 +102,7 @@ const reviews: Review[] = [
       "Lulu is a sweetheart and very clearly came from a clean, careful environment. Took off half a star because the deposit refund policy wasn't as clear as we'd have liked when we asked about backup scenarios.",
     name: "Diego & Camila Reyes",
     location: "Miami, FL",
-    breed: "Bichon Frise — Lulu",
+    breed: "Mini Dachshund — English Cream, Lulu",
     date: "October 2025"
   },
   {
@@ -106,7 +112,7 @@ const reviews: Review[] = [
       "Theo is a beautiful, healthy puppy and we love him. The booking process felt rushed and we had to chase multiple emails to get the final documents before pickup. The puppy himself is great — the admin side needed work.",
     name: "The McAllister Family",
     location: "Boise, ID",
-    breed: "Cavalier King Charles — Theo",
+    breed: "Mini Dachshund — Chocolate & Tan, Theo",
     date: "February 2026"
   },
   {
@@ -116,8 +122,9 @@ const reviews: Review[] = [
       "Health guarantee was easy to read, vet records were organized, and they answered every weird first-time-owner question without making us feel silly. Bear is everything.",
     name: "Hannah & Drew P.",
     location: "Nashville, TN",
-    breed: "Mini Bernedoodle — Bear",
-    date: "April 2026"
+    breed: "Mini Dachshund — Cream Longhair, Bear",
+    date: "April 2026",
+    photo: "/media/reviews/review-6.jpeg"
   },
   {
     rating: 3,
@@ -126,17 +133,17 @@ const reviews: Review[] = [
       "The puppy is wonderful. Transport was the weak point — the flight got rebooked twice and we got the updated info the morning of the original flight. They apologized but it added a real layer of stress.",
     name: "The Chen Family",
     location: "Bellevue, WA",
-    breed: "Pomeranian — Mochi",
+    breed: "Mini Dachshund — Black & Tan, Mochi",
     date: "January 2026"
   },
   {
     rating: 4,
     title: "Two years of waiting, absolutely worth it",
     quote:
-      "Date has a calm temperament, gets along great with our older lab, and arrived already responding to her name. Small note — the final invoice arrived a few days late, but that's it.",
+      "Date has a calm temperament, gets along great with our older lab, and arrived already responding to her name. Small note — the final invoice arrived a few days late.",
     name: "Ahmed & Layla Faruq",
     location: "Plano, TX",
-    breed: "Maltipoo — Date",
+    breed: "Mini Dachshund — Chocolate Piebald, Date",
     date: "March 2026"
   },
   {
@@ -146,8 +153,9 @@ const reviews: Review[] = [
       "Mabel is healthy and happy and that's what matters most. The boutique experience was good but not extraordinary — updates came in bursts rather than steadily. We'd still recommend them.",
     name: "The Sullivan Family",
     location: "Cleveland, OH",
-    breed: "Shih Tzu — Mabel",
-    date: "September 2025"
+    breed: "Mini Dachshund — Chocolate Dapple, Mabel",
+    date: "September 2025",
+    photo: "/media/reviews/review-7.jpeg"
   },
   {
     rating: 2.5,
@@ -156,7 +164,7 @@ const reviews: Review[] = [
       "Sunny is healthy and gorgeous and bonded to us fast. But the wait between deposit and arrival was longer than originally quoted, and the updates during that gap were thin.",
     name: "Vanessa T.",
     location: "Phoenix, AZ",
-    breed: "Mini Goldendoodle — Sunny",
+    breed: "Mini Dachshund — Red Smooth, Sunny",
     date: "November 2025"
   },
   {
@@ -166,8 +174,9 @@ const reviews: Review[] = [
       "Olive came with a folder of records, a transition snack pack so her food didn't change overnight, and a follow-up checklist that walked us through week one. Completed our family.",
     name: "The Brennan Family",
     location: "Portland, ME",
-    breed: "Cavapoo — Olive",
-    date: "May 2026"
+    breed: "Mini Dachshund — Chocolate Dapple, Olive",
+    date: "May 2026",
+    photo: "/media/reviews/review-8.jpeg"
   }
 ];
 
@@ -231,6 +240,11 @@ export default function TestimonialsPage() {
         <div className="review-grid">
           {reviews.map((review) => (
             <figure className="review-card" key={review.quote}>
+              {review.photo ? (
+                <div className="review-card__photo">
+                  <img src={review.photo} alt={review.breed} loading="lazy" />
+                </div>
+              ) : null}
               <div className="review-card__head">
                 <StarRating rating={review.rating} />
                 <span className="review-card__rating-number">
